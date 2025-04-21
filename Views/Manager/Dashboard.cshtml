@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Manager Dashboard";
+    //var username = ViewData["Username"] as string;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background: url('/images/mandash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dashboard-wrapper {
+            background-color: rgba(20, 20, 20, 0.75);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 80px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .dashboard-title {
+            font-size: 3.0rem;
+            font-weight: 700;
+            color: #f2c94c;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        .dashboard-buttons a {
+            font-size: 1.5em;
+            font-weight: 500;
+            padding: 1.2em 1em;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+            border: none;
+        }
+
+        .dashboard-buttons .btn-warning {
+            background-color: #d35400;
+        }
+
+        .dashboard-buttons .btn-danger {
+            background-color: #c0392b;
+        }
+
+        .dashboard-buttons .btn-secondary {
+            background-color: #34495e;
+        }
+
+        .dashboard-buttons .btn-info {
+            background-color: #16a085;
+        }
+
+        .dashboard-buttons .btn-success {
+            background-color: #27ae60;
+        }
+
+        .dashboard-buttons a:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper text-center">
+        <h1 class="dashboard-title">Welcome @ViewBag.ManagerUsername!</h1>
+        <p class="dashboard-subtitle">Let's Get This Dough On The Road!</p>
+
+        <div class="dashboard-buttons mt-5 d-grid gap-4">
+            <a asp-controller="Manager" asp-action="ViewMenu" class="btn btn-info">🔄 See Current Menu</a>
+            <a asp-controller="Manager" asp-action="EditPizza" class="btn btn-warning">📝 Edit a Pizza</a>
+            <a asp-controller="Manager" asp-action="ViewAllOrders" class="btn btn-danger">📋 View All Orders</a>
+            <a asp-controller="Manager" asp-action="Reports" class="btn btn-secondary">📈 Reports</a>
+            <a asp-controller="Manager" asp-action="ChangeOrderStatus" class="btn btn-info">🔄 Update Order Status</a>
+            <a asp-controller="Manager" asp-action="AddPizzaSelection" class="btn btn-success">✅ Add/Remove a Pizza</a>
+        </div>
+    </div>
+</body>
+</html>

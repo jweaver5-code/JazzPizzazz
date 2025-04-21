@@ -1,0 +1,86 @@
+@model JazzPizzazzApp.Models.RevenueBreakdownViewModel
+
+@{
+    ViewData["Title"] = "Total Amount Earned";
+}
+
+<h2 class="text-center mt-4" style="color: #4b2e83;">
+    Revenue: @ViewBag.FilterLabel
+</h2>
+
+<div class="container text-center mt-4">
+    <!-- Filter Form -->
+    <form method="get" asp-action="TotalAmountEarned" class="mb-4">
+        <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
+            <select name="month" class="form-select w-auto">
+                <option value="">Month</option>
+                @for (int m = 1; m <= 12; m++)
+                {
+                    <option value="@m">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)</option>
+                }
+            </select>
+
+            <select name="year" class="form-select w-auto">
+                <option value="">Year</option>
+                @for (int y = DateTime.Now.Year; y >= 2022; y--)
+                {
+                    <option value="@y">@y</option>
+                }
+            </select>
+
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="@Url.Action("TotalAmountEarned", "Manager")" class="btn btn-outline-secondary">All Time</a>
+        </div>
+    </form>
+
+    <!-- Total Revenue -->
+    <div class="card mx-auto shadow p-4" style="max-width: 400px;">
+        <h4 style="color: #4b2e83;">Total Revenue</h4>
+        <p class="display-4 fw-bold text-success">$@Model.TotalRevenue.ToString("0.00")</p>
+    </div>
+
+    <!-- Revenue Breakdown -->
+    <div class="card mx-auto shadow p-4 mt-5" style="max-width: 600px;">
+        <h4 class="mb-3" style="color: #4b2e83;">Revenue Breakdown by Pizza</h4>
+        <ul class="list-group">
+            @foreach (var item in Model.RevenueByPizzaName)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @item.Key
+                    <span class="fw-bold text-success">$@item.Value.ToString("0.00")</span>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-4">
+        <a href="@Url.Action("Reports", "Manager")" class="btn btn-secondary">⬅ Back to Reports</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card {
+        border-radius: 20px;
+        border: none;
+        background-color: #ffffff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+</style>

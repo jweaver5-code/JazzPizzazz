@@ -1,0 +1,59 @@
+@model List<JazzPizzazzApp.Models.Menu>
+
+@{
+    ViewData["Title"] = "Available Pizzas";
+    TempData.Keep("CustomerEmail");
+}
+
+@section Styles {
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f1e1; /* Vintage off-white background */
+            color: #333; /* Dark text for contrast */
+        }
+    </style>
+}
+
+<div class="container mt-5">
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <h1 class="display-1" style="font-family: 'Limelight', cursive;">
+                <span style="color: rgb(110, 3, 3);">P   I   Z   Z   A</span><br />
+                <span style="color: rgb(110, 3, 8);">M   E   N   U</span>
+            </h1>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+            <img src="~/images/pizzaguy.png" alt="Pizza Guy" style="max-height: 180px;" class="img-fluid" />
+        </div>
+    </div>
+
+    <!-- Flexbox Container for Pictures and Pizza Details -->
+    <div class="d-flex justify-content-between" style="height: 500px;">
+        <!-- Left side: 3 images -->
+        <div class="d-flex flex-column justify-content-between" style="width: 30%; height: 100%;">
+            <img src="~/images/meat.jpg" alt="Pizza 1" class="img-fluid" style="object-fit: contain; height: 33.33%;" />
+            <img src="~/images/chicago.jpg" alt="Pizza 2" class="img-fluid" style="object-fit: contain; height: 33.33%;" />
+            <img src="~/images/veggie.jpg" alt="Pizza 3" class="img-fluid" style="object-fit: contain; height: 33.33%;" />
+        </div>
+
+        <!-- Right side: Pizza details -->
+        <div class="p-4 border border-danger rounded" style="width: 65%; height: 100%; overflow-y: auto;">
+            @foreach (var pizza in Model.Where(p => p.Available))  
+            {
+                <div class="mb-4">
+                    <h3 class="fw-bold">
+                        @pizza.PizzaName<span class="ms-4">$@pizza.Price.ToString("0.00")</span>
+                    </h3>
+                    <p>@pizza.Toppings</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Button to go back to the customer dashboard -->
+    <div class="mt-5 text-center">
+        <a href="@Url.Action("Dashboard", "Customer")" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>

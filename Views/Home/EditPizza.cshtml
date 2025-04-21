@@ -1,0 +1,34 @@
+@model List<JazzPizzazzApp.Models.Menu>
+
+<h2>Edit Pizza</h2>
+
+<form method="post" action="@Url.Action("EditPizza")">
+    <div>
+        <label for="PizzaID">Select Pizza to Edit:</label>
+        <select id="PizzaID" name="PizzaID">
+            @foreach (var pizza in Model)
+            {
+                <option value="@pizza.PizzaID">@pizza.PizzaName</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="fieldToEdit">Choose field to edit:</label>
+        <select id="fieldToEdit" name="fieldToEdit">
+            @foreach (var field in ViewBag.EditFields as List<string>)
+            {
+                <option value="@field">@field</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="newValue">Enter new value:</label>
+        <input type="text" id="newValue" name="newValue" required />
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>

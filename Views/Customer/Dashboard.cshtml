@@ -1,0 +1,90 @@
+@{
+    ViewData["Title"] = "Customer Dashboard";
+    var customerEmail = ViewData["Email"] as string;
+    var username = ViewData["Username"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background: url('https://tr-images.condecdn.net/image/0WNkZPw0xGW/crop/2040/f/pizza_express_2-jazz-club-london-feb19-pr.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dashboard-wrapper {
+            background-color: rgba(20, 20, 20, 0.75);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 80px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #f2c94c;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        .dashboard-buttons a {
+            font-size: 1.5em; /* Scales with padding */
+            font-weight: 500;
+            padding: 1.2em 1em; /* Taller buttons */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+            border: none;
+        }
+
+        .dashboard-buttons .btn-success {
+            background-color: #d35400;
+        }
+
+        .dashboard-buttons .btn-primary {
+            background-color: #8e44ad;
+        }
+
+        .dashboard-buttons .btn-info {
+            background-color: #2980b9;
+        }
+
+        /* Updated 'Track My Order' color */
+        .dashboard-buttons .btn-info.track-btn {
+            background-color: #27ae60; /* Green shade to match track order style */
+        }
+
+        .dashboard-buttons a:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper text-center">
+        <h1 class="dashboard-title">Welcome @username!</h1>
+        <p class="dashboard-subtitle">It's your set, what'll it be?</p>
+
+        <div class="dashboard-buttons mt-5 d-grid gap-4">
+            <a asp-controller="Customer" asp-action="PlaceOrder" class="btn btn-success">🍕 Place a New Order</a>
+            <a asp-controller="Customer" asp-action="ViewPastOrders" class="btn btn-primary">🧾 View Past Orders</a>
+            <a asp-controller="Customer" asp-action="ViewAvailablePizzas" class="btn btn-info">🍽️ View Menu</a>
+            <a asp-controller="Customer" asp-action="TrackMyOrder" class="btn btn-info track-btn">📍 Track My Order</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<h2 class="text-center my-4" style="color: #4b2e83;">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- Crust Popularity Report -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("CrustPopularity", "Manager")" class="btn btn-lg w-100 report-btn">
+                🥖 Crust Popularity
+            </a>
+        </div>
+
+        <!-- Top 5 Pizzas Report -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Top5Pizzas", "Manager")" class="btn btn-lg w-100 report-btn">
+                🍕 Top 5 Pizzas
+            </a>
+        </div>
+
+        <!-- Total Amount Earned Report -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("TotalAmountEarned", "Manager")" class="btn btn-lg w-100 report-btn">
+                💰 Revenues
+            </a>
+        </div>
+    </div>
+
+    <!-- Back button -->
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">
+            ⬅ Back to Dashboard
+        </a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        color: #4b2e83;
+    }
+
+    .report-btn {
+        background-color: #4b2e83;
+        color: white;
+        font-size: 1.25rem;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .report-btn:hover {
+        background-color: #351f61;
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+</style>

@@ -1,0 +1,34 @@
+@model List<Order>
+@{
+    ViewBag.Title = "Pick Order to Change Status";
+}
+
+<h2>Select an Order to Change Status</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Pizza</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var order in Model)
+{
+    <tr>
+        <td>@order.OrderID</td>
+        <td>@order.Email</td>
+        <td>@order.Date</td>
+        <td>@order.Pizza</td>
+        <td>@order.Status</td>
+        <td>
+            <a asp-action="ChangeOrderStatus" asp-route-orderID="@order.OrderID" class="btn btn-primary">Change Status</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

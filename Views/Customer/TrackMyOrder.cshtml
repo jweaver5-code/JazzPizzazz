@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Track My Pizza";
+}
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: black; /* fallback color */
+    }
+
+    .tracking-background {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .tracking-background img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .back-button {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: #2980b9; /* Match your theme */
+        color: white;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #1c6e8c;
+    }
+</style>
+
+<div class="tracking-background">
+    <img src="@Url.Content("~/images/Track.png")" alt="Tracking Pizza" />
+
+    <!-- Back to Dashboard Button -->
+    <a href="@Url.Action("Dashboard", "Customer")" class="back-button">Back to Dashboard</a>
+</div>

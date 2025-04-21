@@ -1,0 +1,7 @@
+1#cheez#Cheese#Thin#15#True#True
+2#Veggie Pizza#Green Pepper,Onion, Spinach#Thick#14.99#False#True
+3#Meat Lovers Pizza#Sausage, Pepperoni, Italian Beef#Gluten-Free#14.99#True#True
+4#Chicago Sausauge#Sausage, Pepperoni#Stuffed#15.99#True#True
+5#Bobbys#Sausage, Onion#Thin#15#True#False
+6#Maeders#Canadian Bacon#Thick#25.99#False#True
+7#Big50#Sausage, Pineapple, Onion, Garlic#Stuffed#34#False#True

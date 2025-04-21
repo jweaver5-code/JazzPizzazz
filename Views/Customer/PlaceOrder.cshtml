@@ -1,0 +1,157 @@
+@model List<Menu>  
+
+@{
+    ViewData["Title"] = "Place Your Order";
+}
+
+<!-- Jazz-inspired Styling -->
+<style>
+    /* Body styling with background image */
+    body {
+        background-image: url('/images/back.jpg'); /* Corrected path to the image */
+        background-size: cover; /* Ensure the background covers the full page */
+        background-position: center; /* Center the image */
+        background-attachment: fixed; /* Make the background fixed when scrolling */
+        font-family: 'Roboto Slab', serif; /* Bold, jazz-inspired font */
+        color: #2c3e50; /* Dark navy text for contrast */
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Ensure the body takes up the full height of the viewport */
+        position: relative;
+    }
+
+    /* Apply blur effect and set opacity for background only */
+    .blurred-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/images/back.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        filter: blur(8px); /* Apply blur effect */
+        opacity: 0.75; /* Set opacity to 75% */
+        z-index: -1; /* Ensure it's behind the content */
+    }
+
+    h2 {
+        text-align: center;
+        color: #ffffff; /* White for the title text */
+        font-size: 2.5rem; /* Slightly smaller font size */
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        font-family: 'Playfair Display', serif; /* Elegant, jazz-inspired font */
+    }
+
+    /* Form container styling */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%; /* Make sure it fills the screen */
+        box-sizing: border-box; /* Ensure padding is included in height */
+    }
+
+    /* Form group styling */
+    .form-group {
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.8); /* White with higher opacity */
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px; /* Increase max width to make text boxes much larger */
+    }
+
+    label {
+        font-size: 1.6rem; /* Slightly smaller font size for labels */
+        font-weight: bold;
+        color: #2c3e50; /* Dark text color */
+        margin-bottom: 15px;
+    }
+
+    /* Larger textboxes with increased opacity, black font color */
+    select.form-control {
+        background-color: rgba(255, 255, 255, 0.8); /* Higher opacity (0.8) */
+        border: 2px solid #d16d7b; /* Deep pink border */
+        color: #000000; /* Black font color */
+        padding: 15px; /* Slightly reduced padding */
+        font-size: 1.8rem; /* Slightly smaller font size for text boxes */
+        border-radius: 10px; /* More rounded corners for a smooth look */
+        width: 100%;
+        max-width: 100%; /* Ensures the text box fills the available space horizontally */
+        box-sizing: border-box;
+    }
+
+    select.form-control:focus {
+        border-color: #e82c4c; /* Red border on focus */
+        box-shadow: 0 0 8px rgba(232, 44, 76, 0.5);
+    }
+
+    /* Submit button */
+    button.btn-primary {
+        background-color: #e82c4c; /* Bold red for the button */
+        border: none;
+        padding: 20px 30px;
+        font-size: 2rem; /* Larger button font */
+        color: white;
+        border-radius: 30px;
+        width: 100%;
+        max-width: 800px; /* Match button width to text box width */
+        cursor: pointer;
+    }
+
+    button.btn-primary:hover {
+        background-color: #d21f2a; /* Slightly darker red on hover */
+    }
+</style>
+
+<!-- Blurred Background Div -->
+<div class="blurred-background"></div>
+
+<h2>Place Your Order</h2>
+
+<div class="form-container">
+    <form method="post" asp-action="PlaceOrder">
+        <div class="form-group">
+            <label for="pizzaID">Choose a pizza</label>
+            <select id="pizzaID" name="pizzaID" class="form-control" required>
+                <option value="">--Select a Pizza--</option>
+                @foreach (var pizza in Model)
+                {
+                    <option value="@pizza.PizzaID">@pizza.PizzaName - $@pizza.Price</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="size">Select Size</label>
+            <select id="size" name="size" class="form-control" required>
+                <option value="">--Select Size--</option>
+                <option value="8">8</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="crust">Select Crust</label>
+            <select id="crust" name="crust" class="form-control" required>
+                <option value="">--Select Crust--</option>
+                <option value="Thin">Thin</option>
+                <option value="Thick">Thick</option>
+                <option value="Stuffed">Stuffed</option>
+                <option value="Gluten-Free">Gluten-Free</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Pizza to Order</button>
+    </form>
+</div>

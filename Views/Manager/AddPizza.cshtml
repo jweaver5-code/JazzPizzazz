@@ -1,0 +1,142 @@
+@model JazzPizzazzApp.Models.Menu
+
+@{
+    ViewData["Title"] = "Add Pizza";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row w-50">
+        <div class="col-md-8">
+            <h3>Select Pizza Options</h3>
+
+            <!-- Form for Pizza Options -->
+            <form asp-action="AddPizza" method="post">
+                <!-- Pizza Name -->
+                <div class="form-group">
+                    <label for="PizzaName">Pizza Name</label>
+                    <input asp-for="PizzaName" class="form-control" />
+                    <span asp-validation-for="PizzaName" class="text-danger"></span>
+                </div>
+
+                <!-- Crust Selection -->
+                <div class="form-group">
+                    <label for="crust">Crust</label>
+                    <select id="crust" name="Crust" class="form-control custom-select">
+                        <option value="" disabled selected>Select from Options</option>
+                        <option value="Gluten-Free">Gluten-Free</option>
+                        <option value="Thin">Thin</option>
+                        <option value="Thick">Thick</option>
+                        <option value="Stuffed">Stuffed</option>
+                    </select>
+                </div>
+
+                <!-- Price Field -->
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <select id="size" name="Size" class="form-control custom-select">
+                        <option value="" disabled selected>Select from Options</option>
+                        <option value="8">8"</option>
+                        <option value="12">12"</option>
+                        <option value="16">16"</option>
+                    </select>
+                </div>
+
+                <!-- Toppings Selection -->
+                <div class="form-group">
+                    <label>Toppings</label>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping1" name="Toppings" value="Sausage">
+                        <label class="form-check-label" for="topping1">Sausage</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping2" name="Toppings" value="Pepperoni">
+                        <label class="form-check-label" for="topping2">Pepperoni</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping3" name="Toppings"
+                            value="Canadian Bacon">
+                        <label class="form-check-label" for="topping3">Canadian Bacon</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping4" name="Toppings" value="Cheese">
+                        <label class="form-check-label" for="topping4">Cheese</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping5" name="Toppings" value="Bacon">
+                        <label class="form-check-label" for="topping5">Bacon</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping6" name="Toppings"
+                            value="Green Pepper">
+                        <label class="form-check-label" for="topping6">Green Pepper</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping7" name="Toppings"
+                            value="Black Olive">
+                        <label class="form-check-label" for="topping7">Black Olive</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping8" name="Toppings"
+                            value="Green Olive">
+                        <label class="form-check-label" for="topping8">Green Olive</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping9" name="Toppings" value="Pineapple">
+                        <label class="form-check-label" for="topping9">Pineapple</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping10" name="Toppings" value="Beef">
+                        <label class="form-check-label" for="topping10">Beef</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping11" name="Toppings"
+                            value="Hot Pepper">
+                        <label class="form-check-label" for="topping11">Hot Pepper</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping12" name="Toppings" value="Spinach">
+                        <label class="form-check-label" for="topping12">Spinach</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping13" name="Toppings" value="Garlic">
+                        <label class="form-check-label" for="topping13">Garlic</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping14" name="Toppings" value="Tomato">
+                        <label class="form-check-label" for="topping14">Tomato</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping15" name="Toppings"
+                            value="Feta Cheese">
+                        <label class="form-check-label" for="topping15">Feta Cheese</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping16" name="Toppings" value="Chicken">
+                        <label class="form-check-label" for="topping16">Chicken</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="topping17" name="Toppings" value="Onion">
+                        <label class="form-check-label" for="topping16">Onion</label>
+                    </div>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Add Pizza</button>
+                </div>
+            </form>
+        </div>
+         <div class="text-center mt-4"></div>
+                <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">⬅ Back to Dashboard</a>
+            </div>
+    </div>
+</div>

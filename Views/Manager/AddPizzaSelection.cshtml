@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Select Pizza Type";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Would you like to add a whole new pizza or re-add an unavailable pizza?</p>
+
+            <div>
+                <a href="@Url.Action("AddPizza", "Manager")" class="btn btn-success">Add a New Pizza</a>
+                <a href="@Url.Action("ReAddUnavailablePizza", "Manager")" class="btn btn-warning">Re-add Unavailable Pizza</a>
+                <a href="@Url.Action("RemovePizza", "Manager")" class="btn btn-warning">Remove a Pizza</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+        <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">
+            ⬅ Back to Dashboard
+        </a>
+    </div>

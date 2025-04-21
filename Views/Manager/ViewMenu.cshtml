@@ -1,0 +1,71 @@
+@model IEnumerable<JazzPizzazzApp.Models.Menu> 
+
+@{
+    ViewData["Title"] = "The Menu";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            @if (Model != null && Model.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Toppings</th>
+                            <th>Crust</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var pizza in Model)
+                        {
+                            <tr>
+                                <td>@pizza.PizzaName</td>
+                                <td>$@pizza.Price</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(pizza.Toppings))
+                                    {
+                                        @foreach (var topping in pizza.Toppings.Split(','))
+                                        {
+                                            <div>@topping.Trim()</div>  <!-- Trim spaces around toppings -->
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>No Toppings</span>
+                                    }
+                                </td>
+                                <td>@pizza.Crust</td>
+                                <td>
+                                    @if (pizza.Available)
+                                    {
+                                        <span class="text-success">Available</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-danger">Not Available</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No pizzas available in the menu.</p>
+            }
+
+            <!-- Button to go back to the Manager Dashboard -->
+            <div class="text-center mt-4">
+                <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-primary">Back to Manager Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>

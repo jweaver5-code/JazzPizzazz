@@ -1,0 +1,182 @@
+@model List<JazzPizzazzApp.Models.Menu>
+
+@{
+    ViewData["Title"] = "Edit Pizza";
+    var editFields = ViewBag.EditFields as List<string>;
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('/images/vinyl.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 100%;
+    }
+
+    .background-section {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .background-section::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        z-index: 0;
+    }
+
+    .edit-title {
+        position: relative;
+        z-index: 1;
+        font-size: 48px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+    }
+
+    .form-container {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 90%;
+        max-width: 600px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        z-index: 1;
+    }
+
+    label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    select, input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        background-color: #4b2e83;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #362060;
+    }
+
+    .back-button {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .back-button a {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #6c757d;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+        background-color: #5a6268;
+    }
+
+    .no-pizzas {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        margin-top: 100px;
+        z-index: 1;
+    }
+</style>
+
+<div class="background-section">
+    <div class="edit-title">Edit Pizza</div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="form-container">
+            <form asp-action="EditPizza" method="post">
+                <label for="PizzaID">Select Pizza:</label>
+                <select name="PizzaID" required>
+                    @foreach (var pizza in Model)
+                    {
+                        <option value="@pizza.PizzaID">
+                            @pizza.PizzaID - @pizza.PizzaName (Crust: @pizza.Crust, Toppings: @pizza.Toppings)
+                        </option>
+                    }
+                </select>
+
+                <label for="fieldToEdit">What do you want to edit?</label>
+                <select name="fieldToEdit" id="fieldToEdit" required>
+                    @foreach (var field in editFields)
+                    {
+                        <option value="@field">@field</option>
+                    }
+                </select>
+
+                <label for="newValue">Enter new value:</label>
+                <input type="text" name="newValue" id="newValue" required />
+
+                <button type="submit">Update Pizza</button>
+            </form>
+
+            <div class="back-button">
+                <a asp-controller="Manager" asp-action="Dashboard">⬅ Back to Dashboard</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="no-pizzas">No pizzas found to edit.</p>
+    }
+</div>
+
+<script>
+    const fieldSelect = document.getElementById('fieldToEdit');
+    const newValueInput = document.getElementById('newValue');
+
+    function updateInputType() {
+        if (fieldSelect.value === 'Price') {
+            newValueInput.type = 'number';
+            newValueInput.step = '0.01';
+            newValueInput.placeholder = 'Enter new price (e.g., 12.99)';
+        } else {
+            newValueInput.type = 'text';
+            newValueInput.removeAttribute('step');
+            newValueInput.placeholder = 'Enter new value';
+        }
+    }
+
+    fieldSelect.addEventListener('change', updateInputType);
+    window.addEventListener('DOMContentLoaded', updateInputType);
+</script>

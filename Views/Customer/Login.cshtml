@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "Customer Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        /* Body background image */
+        body {
+            background-image: url('https://cdn.wallpapersafari.com/6/61/S7D5Vs.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-top: 0; /* No offset for the body */
+        }
+
+        /* Login form container */
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for the form */
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 50px; /* Added margin to create space */
+            position: relative;
+            color: white; /* Set text color to white */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white; /* Set text color to white */
+        }
+
+        .form-group label {
+            color: white; /* Set label text color to white */
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: white; /* Set form input text color to white */
+        }
+
+        .btn-primary {
+            color: white; /* White text for the login button */
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+            padding: 15px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        p.mt-3 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        p.mt-3 a {
+            color: white; /* White text for the "Register here" link */
+        }
+
+        p.mt-3 a:hover {
+            text-decoration: underline;
+            color: #e74c3c; /* Keep the link color consistent with the button on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Removed Navbar entirely -->
+
+    <!-- Login Form Below -->
+    <div class="container mt-4 d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="login-container">
+            <h2>@ViewData["Title"]</h2>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div style="color: red;">
+                    <strong>@ViewBag.ErrorMessage</strong>
+                </div>
+            }
+
+            <form method="post" action="@Url.Action("Login", "Customer")">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

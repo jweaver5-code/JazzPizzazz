@@ -1,0 +1,95 @@
+@model IEnumerable<JazzPizzazzApp.Models.Order>
+
+@{
+    ViewData["Title"] = "View Daily Orders";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Form for date selection -->
+<form method="post" asp-controller="Manager" asp-action="ViewDailyOrders" id="dateForm">
+    <label for="selectedDate">Select a Date:</label>
+    <input type="text" id="selectedDate" name="selectedDate" required placeholder="Select Date" />
+    <button type="submit" id="viewOrdersButton" disabled>View Orders</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}
+
+<!-- Orders Table -->
+@if (Model != null && Model.Any())
+{
+    <h2>Orders for @ViewBag.SelectedDate</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Email</th>
+                <th>Pizza</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>@order.Email</td>
+                    <td>@order.Pizza</td> <!-- Assuming PizzaName is a property in Order model -->
+                    <td>@order.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found for the selected date.</p>
+}
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+    <script>
+        $(document).ready(function () {
+            // Initialize the jQuery UI Datepicker
+            $("#selectedDate").datepicker({
+                dateFormat: "mm/dd/yy", // Use MM/dd/yy format with two-digit year
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "c-10:c+10", // Optional: Show the range of years from 10 years before to 10 years after the current year
+                onClose: function (dateText, inst) {
+                    // Automatically format the year as two digits when a date is selected
+                    var date = new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay);
+                    var twoDigitYear = (date.getFullYear() % 100).toString().padStart(2, "0");
+                    var formattedDate = (date.getMonth() + 1).toString().padStart(2, "0") + "/" +
+                                        date.getDate().toString().padStart(2, "0") + "/" + twoDigitYear;
+                    $(this).val(formattedDate);
+
+                    // Enable the "View Orders" button once a date is selected
+                    if ($(this).val()) {
+                        $("#viewOrdersButton").prop("disabled", false);
+                    }
+                }
+            });
+
+            // Disable the "View Orders" button until a date is selected
+            $("#viewOrdersButton").prop("disabled", true);
+
+            // Change the placeholder text to "Select Date"
+            $("#selectedDate").attr("placeholder", "Select Date");
+
+            // Form validation to ensure a date is selected before submission
+            $("#dateForm").submit(function (e) {
+                if ($("#selectedDate").val() === "") {
+                    e.preventDefault(); // Prevent form submission if no date is selected
+                    alert("Please select a date.");
+                }
+            });
+        });
+    </script>
+}

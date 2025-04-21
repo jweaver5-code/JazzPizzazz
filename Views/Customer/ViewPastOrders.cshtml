@@ -1,0 +1,113 @@
+@model List<JazzPizzazzApp.Models.Order>
+
+@{
+    var username = ViewData["Username"] as string;
+    Layout = "_Layout";
+}
+
+<style>
+    /* Container for the receipt */
+    .receipt-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 3rem;
+        border: 2px dashed #a3b2b9; /* Softer border color */
+        background-color: #f9f9f9; /* Softer background */
+        font-family: 'Courier New', Courier, monospace;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        font-size: 1.5rem; /* Even bigger font size for readability */
+    }
+
+    /* Header of the receipt with customer email */
+    .receipt-header {
+        text-align: center;
+        font-size: 2.5rem; /* Larger title */
+        font-weight: bold;
+        margin-bottom: 2rem;
+        color: #d9534f; /* Softer red for title */
+    }
+
+    /* Section separating orders */
+    .receipt-section {
+        border-top: 1px dashed #a3b2b9; /* Softer dashed border */
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* Line for order details */
+    .order-line {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem; /* Increased margin between lines */
+    }
+
+    /* Order details text */
+    .order-detail {
+        font-size: 1.3rem; /* Larger font for better readability */
+        line-height: 1.8;
+        color: #555; /* Softer gray for the text */
+    }
+
+    /* Cost of the order text */
+    .order-cost {
+        font-weight: bold;
+        font-size: 1.5rem; /* Larger price */
+        color: #28a745; /* Softer green for price */
+    }
+
+    /* Message for no orders */
+    .no-orders {
+        text-align: center;
+        font-style: italic;
+        margin-top: 2rem;
+        font-size: 1.6rem; /* Bigger no orders message */
+        color: #888; /* Softer gray color */
+    }
+
+    /* Button for going back to dashboard */
+    .back-button {
+        margin-top: 3rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<div class="receipt-container">
+    <div class="receipt-header">Past Orders for <span>@username</span></div>
+
+    @if (!Model.Any())
+    {
+        <p class="no-orders">You have not placed any orders yet.</p>
+    }
+    else
+    {
+        foreach (var order in Model)
+        {
+            var basePrice = 10.0;
+            var pricePerInch = 0.75;
+            var cost = basePrice + (order.Size * pricePerInch);
+            
+            // Convert order.Date to DateTime
+            DateTime orderDate = DateTime.Parse(order.Date);
+
+            <div class="receipt-section">
+                <div class="order-line">
+                    <span><strong>Date:</strong> @orderDate.ToShortDateString()</span>
+                    <span class="order-cost">$@cost.ToString("0.00")</span>
+                </div>
+                <div class="order-detail">
+                    <strong>Pizza:</strong> @order.Pizza<br />
+                    <strong>Size:</strong> @order.Size" &nbsp;&nbsp; | &nbsp;&nbsp;
+                    <strong>Crust:</strong> @order.Crust<br />
+                    <strong>Status:</strong> @order.Status
+                </div>
+            </div>
+        }
+    }
+
+    <!-- Button to go back to the customer dashboard -->
+    <div class="back-button">
+        <a href="@Url.Action("Dashboard", "Customer")" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>

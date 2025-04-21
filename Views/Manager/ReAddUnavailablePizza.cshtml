@@ -1,0 +1,39 @@
+@model IEnumerable<JazzPizzazzApp.Models.Menu>
+
+@{
+    ViewData["Title"] = "Re-add Unavailable Pizza";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Select a pizza to re-add to the menu:</p>
+
+            @if (Model != null && Model.Any())
+            {
+                <form method="post">
+                    <div class="form-group">
+                        <select class="form-control" name="pizzaID">
+                            @foreach (var pizza in Model)
+                            {
+                                <option value="@pizza.PizzaID">@pizza.PizzaName</option>
+                            }
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Re-add Pizza</button>
+                </form>
+            }
+            else
+            {
+                <p>No unavailable pizzas to re-add.</p>
+            }
+
+             <div class="text-center mt-4"></div>
+                <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">⬅ Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>

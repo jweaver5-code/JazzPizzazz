@@ -1,0 +1,39 @@
+@model List<JazzPizzazzApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Change Order Status";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <form asp-action="ChangeOrderStatus" method="post">
+                <div class="form-group">
+                    <label for="orderId">Select an Order to Change Status for:</label>
+                    <select id="orderId" name="orderID" class="form-control" required>
+                        <option value="" disabled selected>-- Choose an Order --</option>
+                        @foreach (var order in Model)
+                        {
+                            <option value="@order.OrderID">
+                                Order #@order.OrderID - @order.Email - Status: @order.Status
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Change Status</button>
+                </div>
+            </form>
+
+                <div class="text-center mt-4"></div>
+        <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">
+            ⬅ Back to Dashboard
+        </a>
+    </div>
+        </div>
+    </div>
+</div>

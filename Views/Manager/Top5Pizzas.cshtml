@@ -1,0 +1,28 @@
+@model List<KeyValuePair<string, int>>
+
+<h1>Top 5 Most Ordered Pizzas</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Pizza Name</th>
+            <th>Order Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pizza in Model)
+        {
+            var pizzaID = pizza.Key;
+            <tr>
+                <td>
+                    <strong>@pizzaID</strong>
+                </td>
+                <td>@pizza.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mt-4">
+        <a href="@Url.Action("Reports", "Manager")" class="btn btn-secondary">⬅ Back to Reports</a>
+    </div>

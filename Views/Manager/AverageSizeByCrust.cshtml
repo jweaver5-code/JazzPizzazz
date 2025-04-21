@@ -1,0 +1,21 @@
+@model Dictionary<string, double>
+
+<h2>Average Pizza Size by Crust</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Crust Type</th>
+            <th>Average Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kvp in Model)
+        {
+            <tr>
+                <td>@kvp.Key</td>
+                <td>@kvp.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>

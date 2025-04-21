@@ -1,0 +1,151 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = JazzPizzazzApp
+build_property.RootNamespace = JazzPizzazzApp
+build_property.ProjectDir = C:\Users\jessw\OneDrive\mis221\JazzPizzazz\JazzPizzazzApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\jessw\OneDrive\mis221\JazzPizzazz\JazzPizzazzApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/OrderReceipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcT3JkZXJSZWNlaXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/PlaceOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUGxhY2VPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/TrackMyOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVHJhY2tNeU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/ViewAvailablePizzas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVmlld0F2YWlsYWJsZVBpenphcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Customer/ViewPastOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVmlld1Bhc3RPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Home/EditPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UGl6emEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Home/Merch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/AddPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBZGRQaXp6YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/AddPizzaSelection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBZGRQaXp6YVNlbGVjdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/AverageSizeByCrust.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBdmVyYWdlU2l6ZUJ5Q3J1c3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/ChangeOrderStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxDaGFuZ2VPcmRlclN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/CrustPopularity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxDcnVzdFBvcHVsYXJpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/EditPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxFZGl0UGl6emEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/PickOrderToChangeStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxQaWNrT3JkZXJUb0NoYW5nZVN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/ReAddUnavailablePizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxSZUFkZFVuYXZhaWxhYmxlUGl6emEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/RemovePizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxSZW1vdmVQaXp6YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxSZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/Top5Pizzas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxUb3A1UGl6emFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/TotalAmountEarned.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxUb3RhbEFtb3VudEVhcm5lZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/ViewAllOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxWaWV3QWxsT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/ViewDailyOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxWaWV3RGFpbHlPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/ViewMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxWaWV3TWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Manager/_DailyOrdersTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxfRGFpbHlPcmRlcnNUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jessw/OneDrive/mis221/JazzPizzazz/JazzPizzazzApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-h08w73qrku

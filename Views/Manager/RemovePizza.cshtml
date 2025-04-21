@@ -1,0 +1,40 @@
+@model List<JazzPizzazzApp.Models.Menu>
+
+@{
+    ViewData["Title"] = "Remove Pizza";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <form asp-action="RemovePizza" method="post">
+                <div class="form-group">
+                    <label for="pizzaId">Select a Pizza to Remove:</label>
+                    <select id="pizzaId" name="pizzaId" class="form-control" required>
+                        <option value="" disabled selected>-- Choose a Pizza --</option>
+                        @foreach (var pizza in Model)
+                        {
+                            if (pizza.Available)
+                            {
+                                <option value="@pizza.PizzaID">@pizza.PizzaName (@pizza.Crust, $@pizza.Price)</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-danger">Remove Pizza</button>
+                </div>
+
+            </form>
+
+             <div class="text-center mt-4"></div>
+                <a href="@Url.Action("Dashboard", "Manager")" class="btn btn-secondary">⬅ Back to Dashboard</a>
+            </div>
+
+        </div>
+    </div>
+</div>
